@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		757A5942288E5974001D5070 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 757A5941288E5974001D5070 /* main.cpp */; };
+		757A5950288E5A7E001D5070 /* WorldData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 757A594E288E5A7E001D5070 /* WorldData.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -17,6 +18,9 @@
 		757A5945288E5974001D5070 /* nice_music.ogg */ = {isa = PBXFileReference; lastKnownFileType = file; name = nice_music.ogg; path = ../nice_music.ogg; sourceTree = "<group>"; };
 		757A5946288E5974001D5070 /* sansation.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = sansation.ttf; path = ../sansation.ttf; sourceTree = "<group>"; };
 		757A5947288E5974001D5070 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = ../icon.png; sourceTree = "<group>"; };
+		757A594D288E5A34001D5070 /* SideScroller.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SideScroller.entitlements; sourceTree = "<group>"; };
+		757A594E288E5A7E001D5070 /* WorldData.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = WorldData.cpp; sourceTree = "<group>"; };
+		757A594F288E5A7E001D5070 /* WorldData.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = WorldData.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,7 +53,12 @@
 		757A5940288E5974001D5070 /* SideScroller */ = {
 			isa = PBXGroup;
 			children = (
+				757A5952288E5E57001D5070 /* Assets */,
+				757A5951288E5AB2001D5070 /* Worlds */,
+				757A594D288E5A34001D5070 /* SideScroller.entitlements */,
 				757A5941288E5974001D5070 /* main.cpp */,
+				757A594E288E5A7E001D5070 /* WorldData.cpp */,
+				757A594F288E5A7E001D5070 /* WorldData.hpp */,
 				757A5943288E5974001D5070 /* Resources */,
 			);
 			path = SideScroller;
@@ -64,6 +73,20 @@
 				757A5947288E5974001D5070 /* icon.png */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		757A5951288E5AB2001D5070 /* Worlds */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Worlds;
+			sourceTree = "<group>";
+		};
+		757A5952288E5E57001D5070 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -123,6 +146,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				757A5950288E5A7E001D5070 /* WorldData.cpp in Sources */,
 				757A5942288E5974001D5070 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -133,7 +157,7 @@
 		757A5948288E5974001D5070 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
+				ARCHS = x86_64;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++11";
 				CLANG_CXX_LIBRARY = "libc++";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -177,7 +201,7 @@
 		757A5949288E5974001D5070 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
+				ARCHS = x86_64;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++11";
 				CLANG_CXX_LIBRARY = "libc++";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -221,6 +245,7 @@
 		757A594B288E5974001D5070 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = SideScroller/SideScroller.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6J4W5DWVDW;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -231,6 +256,7 @@
 		757A594C288E5974001D5070 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = SideScroller/SideScroller.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6J4W5DWVDW;
 				ENABLE_HARDENED_RUNTIME = YES;
