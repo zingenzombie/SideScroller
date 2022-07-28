@@ -1,48 +1,64 @@
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
 #include <iostream>
+#include <thread>
+#include <unistd.h>
 
 using namespace std;
 
-sf::RenderWindow Menu(sf::RenderWindow&);
+static void Runtime(sf::RenderWindow *window);
 
-int main(int argc, char const** argv)
-{
+int main(int argc, char const** argv){
     
-    sf::RenderWindow window(sf::VideoMode(1920, 1080), "SideScroller", sf::Style::Fullscreen);
+    //std::thread runtime;
     
-    Menu(window);
+    sf::RenderWindow *window = new sf::RenderWindow(sf::VideoMode(1920, 1080), "SideScroller");
+    
+    //runtime = thread(&Runtime, window);
+    
+    auto runtime = thread(Runtime, window);
+    
+    sleep(1);
+    
+    window->close();
 
     // Start the game loop
-    while (window.isOpen())
+    while (window->isOpen())
     {
         // Process events
         sf::Event event;
-        while (window.pollEvent(event))
+        while (window->pollEvent(event))
         {
             // Close window: exit
-            if (event.type == sf::Event::Closed) {
-                window.close();
+            if (event.type == sf::Event::Closed || !runtime.joinable()) {
+                window->close();
             }
 
             // Escape pressed: exit
             if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Escape) {
-                window.close();
+                window->close();
             }
         }
-
-        // Clear screen
-        window.clear();
         
         
 
         // Update the window
-        window.display();
+        window->display();
     }
-
+    
+    runtime.detach();
+    
     return EXIT_SUCCESS;
 }
 
-sf::RenderWindow Menu(sf::RenderWindow&){
+static void Runtime(sf::RenderWindow *window){ // Where all game actions and events are handled
+    this_thread::sleep_for(std::chrono::seconds(1));
+    cout << window->getSize().x << endl;
+    cout << window->getSize().y << endl;
+    int counter = 0;
+    while(window->isOpen()){
+        cout << counter++ << endl;
+        window->clear();
+    }
     
 }
